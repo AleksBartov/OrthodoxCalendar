@@ -28,6 +28,7 @@ const index = () => {
           height: dayHeight,
           position: "absolute",
           top: 150,
+          left: -100,
         }}
       >
         <Animated.ScrollView

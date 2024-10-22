@@ -11,16 +11,21 @@ const Day = ({ name, date, index, scrollOffset }) => {
     const activeIndex = scrollOffset.value / dayWidth;
     const scale = interpolate(
       activeIndex,
-      [index - 2, index - 1, index, index + 1, index + 2],
-      [0.8, 1, 0.85, 0.7, 0.55]
+      [index - 4, index - 3, index - 2, index - 1, index],
+      [0, 0.4, 0.7, 1, 1.5]
     );
     const opacity = interpolate(
       activeIndex,
-      [index - 2, index - 1, index, index + 1, index + 2],
-      [0.3, 1, 0.3, 0.2, 0]
+      [index - 4, index - 3, index - 2, index - 1, index],
+      [0, 0.13, 0.15, 1, 0]
+    );
+    const translateX = interpolate(
+      activeIndex,
+      [index - 4, index - 3, index - 2, index - 1, index],
+      [-150, -100, -30, 0, -30]
     );
     return {
-      transform: [{ scale }],
+      transform: [{ translateX }, { scale }],
       opacity,
     };
   }, []);
